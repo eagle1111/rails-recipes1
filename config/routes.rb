@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :events
 
   namespace :admin do
-    root "events#index"
-    resources :events
+    resources :events do
+      resources :tickets, :controller => "event_tickets"
+    end
     resources :users
     resources :groups
   end
