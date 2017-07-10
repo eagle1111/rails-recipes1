@@ -13,6 +13,8 @@ class Registration < ApplicationRecord
   validates_presence_of :name, :if => :should_validate_basic_data?
   validates_presence_of :name, :description, :if => :should_validate_all_data?
 
+  scope :by_status, ->(s){ where( :status => s ) }
+  scope :by_ticket, ->(t){ where( :ticket_id => t ) }
   def to_param
     self.uuid
   end
