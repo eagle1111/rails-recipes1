@@ -45,6 +45,7 @@ gem "select2-rails"
 gem 'jquery-ui-rails'
 gem 'ranked-model'
 gem 'awesome_rails_console'
+gem 'kaminari'
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
