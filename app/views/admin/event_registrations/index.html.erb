@@ -1,9 +1,5 @@
-<h1><%= @event.name %></h1>
+<h1><%= @event.name %> / 日志管理</h1>
 
-
-<%= simple_format @event.description %>
-
-<p><%= link_to "新增日志", new_event_registration_path(@event), :class => "btn btn-primary" %></p>
 
 <table class="table">
 <tr>
@@ -11,9 +7,8 @@
   <th>业务</th>
   <th>操作人</th>
   <th>状态</th>
-  <th>备注</th>
   <th>建立时间</th>
-
+  <th>操作</th>
 </tr>
 <% @registrations.each do |registration| %>
   <tr>
@@ -21,8 +16,8 @@
     <td><%= registration.ticket.name %></td>
     <td><%= registration.name %></td>
     <td><%= t( registration.status, :scope => "registration.status") %></td>
-    <td><%= registration.description %></td>
     <td><%= registration.created_at.strftime("%Y/%m/%d %I:%M %p") %></td>
+    <td><%= link_to "Delete", admin_event_registration_path(@event, registration), :method => "delete", :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>

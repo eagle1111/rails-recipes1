@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_friendly_id!(params[:id])
+    @registrations = @event.registrations.includes(:ticket).order("id DESC")
   end
 
 end

@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root "events#index"
     resources :events do
       resources :tickets, :controller => "event_tickets"
-
+      resources :registrations, :controller => "event_registrations"
       member do
         post :reorder
       end
