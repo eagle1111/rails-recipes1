@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root "events#index"
     resources :events
+    resources :users
+    resources :groups
   end
 
   resource :user
