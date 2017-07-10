@@ -18,6 +18,7 @@ class Registration < ApplicationRecord
   scope :by_status, ->(s){ where( :status => s ) }
   scope :by_ticket, ->(t){ where( :ticket_id => t ) }
   scope :by_department, ->(d){ where( :department_id => d ) }
+  scope :by_section, ->(s){ where( :section_id => s ) }
   def to_param
     self.uuid
   end

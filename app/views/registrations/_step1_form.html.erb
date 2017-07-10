@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= f.label :"班组" %>
-  <%= f.select :section, @event.sections.map{ |s| [s.name, s.id] }, {}, :class => "form-control" %>
+  <%= f.select :section_id, @event.sections.map{ |s| [s.name, s.id] }, {}, :class => "form-control" %>
 </div>
 
 <div class="form-group">
@@ -10,7 +10,7 @@
 
 <div class="form-group">
   <%= f.label :"用户部门" %>
-  <%= f.select :department, @event.departments.map{ |d| [d.name, d.id] }, {}, :class => "form-control" %>
+  <%= f.select :department_id, @event.departments.map{ |d| [d.name, d.id] }, {}, :class => "form-control" %>
 </div>
 
 

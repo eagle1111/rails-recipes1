@@ -14,6 +14,10 @@ class Admin::EventRegistrationsController < AdminController
          @registrations = @registrations.by_ticket(params[:ticket_ids])
        end
 
+       if Array(params[:section_ids]).any?
+         @registrations = @registrations.by_section(params[:section_ids])
+       end
+
        if params[:start_on].present?
          @registrations = @registrations.where( "created_at >= ?", Date.parse(params[:start_on]).beginning_of_day )
        end
@@ -38,6 +42,6 @@ class Admin::EventRegistrationsController < AdminController
      end
 
      def registration_params
-       params.require(:registration).permit(:status, :ticket_id, :name, :desciption, :section)
+       params.require(:registration).permit(:status, :ticket_id, :name, :desciption, :section_id)
      end
 end

@@ -71,7 +71,7 @@ class RegistrationsController < ApplicationController
   protected
 
   def registration_params
-    params.require(:registration).permit(:ticket_id, :department_id, :section_id, :name, :description)
+    params.require(:registration).permit(:ticket_id, :department, :section_id, :name, :description)
   end
 
   def find_event

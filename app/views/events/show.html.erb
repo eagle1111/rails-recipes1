@@ -4,9 +4,17 @@
 <%= simple_format @event.description %>
 
  <%= form_tag event_path(@event), :method => :get do %>
-   <p>业务：<% @event.tickets.each do |t| %>
+   <p>
+     业务：<% @event.tickets.each do |t| %>
      <label><%= check_box_tag "ticket_ids[]", t.id, Array(params[:ticket_ids]).include?(t.id.to_s) %> <%= t.name %> (<%=  @event.registrations.where( :ticket_id => t.id ).size %>)</label>
-   <% end %></p>
+    <% end %>
+   </p>
+
+   <p>
+     班组：<% @event.sections.each do |s| %>
+       <label><%= check_box_tag "section_ids[]", s.id, Array(params[:section_ids]).include?(s.id.to_s) %> <%= s.name %> (<%=  @event.registrations.where( :section_id => s.id ).size %>)</label>
+     <% end %>
+   </p>
 
    <p class="text-right">
      <%= submit_tag "送出筛选", :class => "btn btn-primary" %>
