@@ -8,3 +8,7 @@
       event:
         name: "部门名称"
         desciption: "描述"
+  registration:
+    status:
+      pending: 添加未成功
+      confirmed: 日志添加成功

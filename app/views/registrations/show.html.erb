@@ -1,0 +1,12 @@
+<h1><%= @event.name %></h1>
+
+<h2>日志资料</h2>
+
+<dl>
+  <dt>状态</dt>
+  <dd><%= t(@registration.status, :scope => "registration.status") %></dd>
+  <dt>操作人</dt>
+  <dd><%= @registration.name %></dd>
+  <dt>备注</dt>
+  <dd><%= simple_format @registration.description %></dd>
+</dl>
