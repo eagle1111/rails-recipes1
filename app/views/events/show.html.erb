@@ -1,14 +1,22 @@
-<h1><%= @event.name %></h1>
+<h1><%= @event.name %>    <%= link_to "新增日志", new_event_registration_path(@event), :class => "btn btn-primary" %></h1>
 
 
 <%= simple_format @event.description %>
 
-<p><%= link_to "新增日志", new_event_registration_path(@event), :class => "btn btn-primary" %></p>
+ <%= form_tag event_path(@event), :method => :get do %>
+   <p><% @event.tickets.each do |t| %>
+     <label>业务：<%= check_box_tag "ticket_ids[]", t.id, Array(params[:ticket_ids]).include?(t.id.to_s) %> <%= t.name %> (<%=  @event.registrations.where( :ticket_id => t.id ).size %>)</label>
+   <% end %></p>
 
+   <p class="text-right">
+     <%= submit_tag "送出筛选", :class => "btn btn-primary" %>
+   </p>
+ <% end %>
 <table class="table">
 <tr>
   <th>ID</th>
   <th>业务</th>
+  <th>用户单位</th>
   <th>操作人</th>
   <th>状态</th>
   <th>备注</th>
@@ -19,6 +27,7 @@
   <tr>
     <td><%= registration.id %></td>
     <td><%= registration.ticket.name %></td>
+    <td><%= registration.department.try(:name) %></td>
     <td><%= registration.name %></td>
     <td><%= t( registration.status, :scope => "registration.status") %></td>
     <td><%= registration.description %></td>

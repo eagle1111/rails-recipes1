@@ -3,6 +3,11 @@
   <%= f.select :ticket_id, @event.tickets.map{ |t| [t.name, t.id] }, {}, :class => "form-control" %>
 </div>
 
+<div class="form-group">
+  <%= f.label :"用户部门" %>
+  <%= f.select :department, @event.departments.map{ |d| [d.name, d.id] }, {}, :class => "form-control" %>
+</div>
+
 
 <div class="form-group">
   <%= f.submit "保存并下一步", :class => "btn btn-primary" %>

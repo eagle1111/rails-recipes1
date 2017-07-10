@@ -5,6 +5,7 @@ class Event < ApplicationRecord
  before_validation :generate_friendly_id, :on => :create
 
  has_many :tickets, :dependent => :destroy
+ has_many :departments, :dependent => :destroy
 
  include RankedModel
  ranks :row_order

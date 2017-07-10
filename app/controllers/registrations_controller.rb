@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
   def create
     @registration = @event.registrations.new(registration_params)
     @registration.ticket = @event.tickets.find( params[:registration][:ticket_id] )
+    @registration.department = @event.departments.find( params[:registration][:department_id] )
     @registration.status = "pending"
     @registration.user = current_user
     @registration.current_step = 1
@@ -69,7 +70,7 @@ class RegistrationsController < ApplicationController
   protected
 
   def registration_params
-    params.require(:registration).permit(:ticket_id, :name, :description)
+    params.require(:registration).permit(:ticket_id, :department_id, :name, :description)
   end
 
   def find_event
