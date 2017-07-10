@@ -6,6 +6,9 @@ class Event < ApplicationRecord
 
  has_many :tickets, :dependent => :destroy
 
+ include RankedModel
+ ranks :row_order
+
  def to_param
    self.friendly_id
  end

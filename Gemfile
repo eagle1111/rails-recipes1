@@ -42,6 +42,9 @@ gem 'jbuilder', '~> 2.5'
 gem "rails-i18n"
 gem "devise-i18n"
 gem "select2-rails"
+gem 'jquery-ui-rails'
+gem 'ranked-model'
+gem 'awesome_rails_console'
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
