@@ -4,8 +4,8 @@
 <%= simple_format @event.description %>
 
  <%= form_tag event_path(@event), :method => :get do %>
-   <p><% @event.tickets.each do |t| %>
-     <label>业务：<%= check_box_tag "ticket_ids[]", t.id, Array(params[:ticket_ids]).include?(t.id.to_s) %> <%= t.name %> (<%=  @event.registrations.where( :ticket_id => t.id ).size %>)</label>
+   <p>业务：<% @event.tickets.each do |t| %>
+     <label><%= check_box_tag "ticket_ids[]", t.id, Array(params[:ticket_ids]).include?(t.id.to_s) %> <%= t.name %> (<%=  @event.registrations.where( :ticket_id => t.id ).size %>)</label>
    <% end %></p>
 
    <p class="text-right">

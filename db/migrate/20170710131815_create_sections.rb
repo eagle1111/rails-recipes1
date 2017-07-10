@@ -1,6 +1,6 @@
-class CreateDepartments < ActiveRecord::Migration[5.0]
+class CreateSections < ActiveRecord::Migration[5.0]
   def change
-    create_table :departments do |t|
+    create_table :sections do |t|
       t.integer :event_id, :index => true
       t.string :name
 

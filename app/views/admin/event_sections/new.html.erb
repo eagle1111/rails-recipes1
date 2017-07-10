@@ -1,0 +1,11 @@
+<h1>新增班组</h1>
+
+<%= form_for [:admin, @event, @section] do |f| %>
+
+  <%= render :partial => "form", :locals => { :f => f } %>
+
+  <div class="form-group">
+    <%= f.submit "Create", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", admin_event_sections_path(@event) %>
+  </div>
+<% end %>

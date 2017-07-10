@@ -6,6 +6,7 @@ class Registration < ApplicationRecord
   belongs_to :event
   belongs_to :ticket
   belongs_to :department
+  belongs_to :section
   belongs_to :user, :optional => true
 
   before_validation :generate_uuid, :on => :create

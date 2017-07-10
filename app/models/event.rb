@@ -6,6 +6,7 @@ class Event < ApplicationRecord
 
  has_many :tickets, :dependent => :destroy
  has_many :departments, :dependent => :destroy
+ has_many :sections, :dependent => :destroy
 
  include RankedModel
  ranks :row_order
